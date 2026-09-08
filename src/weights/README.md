@@ -1,21 +1,15 @@
 # Model Weights
 
-Trained YOLOv8-seg weights for the **Leaf Lesion Severity** pipeline are **not** stored in this repository (file size limits).
+Trained YOLOv8-seg weights for the **Leaf Lesion Severity** pipeline are stored in this repository.
 
 ## Download
 
 | File | Description | Size (approx.) | Link |
 |------|-------------|----------------|------|
-| `best.pt` | Best checkpoint from training (recommended) | ~6–7 MB | [GitHub Releases](https://github.com/<your-username>/leaf-lesion-severity-pipeline/releases) |
+| `best.pt` | Best checkpoint from training (recommended) | ~6–7 MB | [GitHub Releases]([https://github.com/PatrickIIT/Plant-Disease-Severity-Pipeline/blob/main/src/weights/best%20(2).zip](https://github.com/PatrickIIT/Plant-Disease-Severity-Pipeline/blob/main/src/weights/best%20(2).zip)) |
 | `last.pt` | Last epoch checkpoint | ~6–7 MB | same release |
 | `leaf_lesion_seg.onnx` | ONNX export for serving | ~13 MB | same release |
 
-> Replace the release URL with your actual release once you upload the files.
-
-Alternative mirrors (optional):
-
-- Kaggle dataset / model  
-- Hugging Face model repo  
 
 ## How to use
 
