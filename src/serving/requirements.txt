@@ -1,0 +1,8 @@
+# serving/requirements.txt
+fastapi
+uvicorn[standard]
+ultralytics
+onnxruntime-gpu
+opencv-python-headless
+pillow
+numpy
