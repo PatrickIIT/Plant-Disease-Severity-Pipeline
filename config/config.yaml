@@ -1,0 +1,49 @@
+# ============================================================
+# Leaf Lesion Severity Pipeline – Configuration
+# ============================================================
+
+# Roboflow
+roboflow:
+  api_key: ""                          # set via env var ROBOFLOW_API_KEY or fill here
+  workspace: "balajicv"
+  project: "leaf-lesion-segmentation-qfbaa"
+  version: 1
+  format: "yolov8"                     # instance-seg polygon export
+
+# Class semantics (must match data.yaml names after download)
+classes:
+  leaf: ["0"]
+  lesion: ["1"]
+
+# Training
+training:
+  model_arch: "yolov8n-seg.pt"         # yolov8n-seg.pt | yolov8s-seg.pt | yolo11s-seg.pt
+  epochs: 50
+  img_size: 512
+  batch: 32
+  project_dir: "runs/severity_seg"
+  run_name: "leaf_lesion_seg"
+  patience: 15
+  device: 0                            # 0 for GPU, "cpu" for CPU
+
+# VLM (Qwen2.5-VL)
+vlm:
+  model_id: "Qwen/Qwen2.5-VL-3B-Instruct"
+  load_4bit: true
+
+# Cross-verification
+cross_verification:
+  disagreement_threshold: 0.25         # normalized gap between DL severity (0-1) and VLM confidence
+
+# Literature-informed options
+options:
+  enable_bg_shadow_removal: true       # AISA-style (BaSPaC)
+  enable_dual_stage_refinement: true   # crop-then-refine (Shivaraj / AgriMamba)
+  severity_scale: "chiang"             # linear | horsfall_barratt | chiang
+
+# Paths
+paths:
+  dataset_dir: "dataset"
+  export_dir: "export"
+  serving_dir: "serving"
+  weights: "weights/best.pt"           # path to trained weights for inference
