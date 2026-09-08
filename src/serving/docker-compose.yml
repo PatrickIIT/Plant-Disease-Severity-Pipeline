@@ -1,0 +1,33 @@
+# serving/docker-compose.yml
+services:
+  scoring-api:
+    build: .
+    image: leaf-severity-api:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      # optional: mount a newer ONNX without rebuilding
+      - ./leaf_lesion_seg.onnx:/app/leaf_lesion_seg.onnx:ro
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+
+  # Optional second service for a VLM verifier (uncomment when ready)
+  # vlm-service:
+  #   image: your-registry/vlm-verifier:latest
+  #   ports:
+  #     - "8081:8080"
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
