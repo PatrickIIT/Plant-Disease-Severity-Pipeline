@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Large model files
+*.pt
+*.onnx
+*.engine
+weights/*.pt
+exports/*.onnx
+
+# Dataset (too big)
+dataset/
+*.zip
+
+# Secrets
+.env
+config/local.yaml
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
