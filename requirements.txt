@@ -1,0 +1,28 @@
+# Core
+ultralytics>=8.3.0
+roboflow
+supervision
+numpy
+pandas
+Pillow
+opencv-python-headless
+matplotlib
+seaborn
+PyYAML
+tqdm
+
+# VLM (Qwen2.5-VL)
+transformers>=4.45.0
+accelerate
+bitsandbytes
+qwen-vl-utils
+
+# Export & serving
+onnx
+onnxruntime-gpu
+onnxslim
+fastapi
+uvicorn[standard]
+
+# Optional (inference SDK – skip if install fails on your Python version)
+# inference-sdk
