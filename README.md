@@ -27,9 +27,9 @@ End-to-end, reproducible pipeline for **instance segmentation of leaf lesions** 
 
 | Metric | Value |
 |--------|-------|
-| Mask mAP@50 | *(fill after evaluation)* |
-| Severity MAE | *(fill after evaluation)* |
-| DL–VLM disagreement rate | *(fill after evaluation)* |
+| Mask mAP@50 | *0.6415967398722516* |
+| Severity MAE | *1.431* |
+| DL–VLM disagreement rate | *53/53 (100%)* |
 
 > Plots are available in the `results/` folder.
 
